@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  simulador-camara:
+    image: alexxit/go2rtc:latest
+    container_name: go2rtc-simulador
+    ports:
+      - "8554:8554"   # Puerto RTSP
+      - "1984:1984"   # Panel de control web
+    volumes:
+      # Ruta relativa: apunta al video.mp4 descargado por Git en el servidor
+      - ./video.mp4:/app/video.mp4
+    environment:
+      - GO2RTC_STREAMS_camara1=ffmpeg:/app/video.mp4#video=h264#loop
+    restart: unless-stopped
