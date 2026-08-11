@@ -1,3 +1,3 @@
 streams:
-    # Transcodifica directamente a mjpeg y se repite en bucle
-    camara1: ffmpeg:/app/video.mp4#video=mjpeg#loop
+    # Leemos la playlist en bucle, concatenamos y codificamos a MJPEG
+    camara1: ffmpeg:/app/playlist.txt#input=-re -stream_loop -1 -f concat -safe 0 -i#video=mjpeg
