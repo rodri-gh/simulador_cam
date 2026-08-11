@@ -1,3 +1,8 @@
+ffmpeg:
+    # Sobrescribimos la forma en que go2rtc lee los archivos locales para activar
+    # el bucle (-stream_loop -1) y la concatenación de videos (-f concat) de forma limpia
+    file: '-re -stream_loop -1 -f concat -safe 0 -i {input}'
+
 streams:
-    # Leemos la playlist en bucle, concatenamos y codificamos a MJPEG
-    camara1: ffmpeg:/app/playlist.txt#input=-re -stream_loop -1 -f concat -safe 0 -i#video=mjpeg
+    # Ahora simplemente apuntamos al archivo y go2rtc usará el preset de arriba
+    camara1: ffmpeg:/app/playlist.txt#video=mjpeg
