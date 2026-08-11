@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+    simulador-camara:
+        build: .
+        container_name: go2rtc-simulador
+        ports:
+            - '8554:8554'
+            - '1984:1984'
+        restart: unless-stopped
