@@ -1,2 +1,3 @@
 streams:
     camara1: ffmpeg:/app/video.mp4#video=h264#loop
+    camara1_mjpeg: ffmpeg:camara1#video=mjpeg
